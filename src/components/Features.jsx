@@ -2,7 +2,7 @@ import React from 'react'
 
 const Features = ({ imgUrl, title, text, icon }) => {
   return (
-    <div className='flex flex-col border-2 overflow-hidden rounded-tr-[40px] rounded-bl-[40px] border-gray-200 shadow-xl shadow-black-100 hover:shadow-[#a81b81]/20'>
+    <div className='flex flex-col h-full border-2 overflow-hidden rounded-tr-[40px] rounded-bl-[40px] border-gray-200 shadow-xl shadow-black-100 hover:shadow-[#a81b81]/20'>
       <div className='h-[240px] overflow-hidden'>
         <img src={imgUrl} className="h-full w-full object-cover transform ease-in-out duration-200 hover:scale-110 hover:grayscale-0" />
       </div>

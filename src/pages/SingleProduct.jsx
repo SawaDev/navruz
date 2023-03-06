@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "./stylee.scss";
 import { Autoplay, Navigation, Thumbs } from "swiper";
 import Contact from '../components/ContactCom.jsx';
+import { motion } from "framer-motion"
+import { fadeIn } from '../utils/motion.js';
 
 const SingleProduct = () => {
   const location = useLocation();
@@ -17,7 +19,12 @@ const SingleProduct = () => {
   return (
     <>
       <section className='flex flex-col sm:flex-row gap-10 justify-center mt-8 sm:0'>
-        <div className='basis-3/5 overflow-hidden'>
+        <motion.div
+          variants={fadeIn("right", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className='basis-3/5 overflow-hidden'>
           <Swiper
             spaceBetween={10}
             navigation={true}
@@ -52,14 +59,19 @@ const SingleProduct = () => {
               ))
             }
           </Swiper>
-        </div>
-        <div className='basis-2/5 h-full flex flex-col'>
+        </motion.div>
+        <motion.div
+          variants={fadeIn("left", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className='basis-2/5 h-full flex flex-col'>
           <h1 className='text-3xl text-white font-semibold mt-4 px-5 py-3 bg-[#e7316d] w-fit rounded-tl-[28px] rounded-br-[28px]'>Fruit Jelly</h1>
           <h1 className='text-3xl text-white font-semibold -mt-2 ml-2 mb-5 px-5 py-2 bg-[#804896] w-fit rounded-tl-[34px] rounded-br-[34px] capitalize'>{products[id].content[index].type}</h1>
           {products[id].content[index]?.pieces && <p className='text-xl text-black/80 font-semibold'>Capacity: <span className='font-medium capitalize text-slate-800'>{products[id].content[index].pieces}</span></p>}
           {products[id].content[index]?.exDate && <p className='text-xl text-black/80 font-semibold'>Expiration Date: <span className='font-medium capitalize text-slate-800'>{products[id].content[index].exDate}</span></p>}
           <p className='text-xl text-black/80 font-semibold'>Weight: <span className='font-medium capitalize text-slate-800'>{products[id].content[index].mass}</span></p>
-        </div>
+        </motion.div>
       </section>
       <div className='mt-10'>
         <Contact />

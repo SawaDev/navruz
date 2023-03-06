@@ -3,6 +3,8 @@ import Heading from '../components/Heading'
 import { products } from "../dummyData.js"
 import { Link } from "react-router-dom"
 import Button from '../components/Button'
+import { motion } from "framer-motion"
+import { fadeIn } from '../utils/motion'
 
 const Products = () => {
   return (
@@ -10,7 +12,13 @@ const Products = () => {
       <Heading text="Our" title="Products" />
       <section className='flex flex-wrap justify-around g-5'>
         {products.map((product, index) => (
-          <div key={index} className='outline flex flex-col items-center mt-7 py-10 px-10 rounded-xl last-of-type:mb-10'>
+          <motion.div
+            variants={fadeIn("up", "", index * 0.1, 0.4)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            key={index}
+            className='outline flex flex-col items-center mt-7 py-10 px-10 rounded-xl last-of-type:mb-10'>
             <div className='max-w-[250px] max-h-[250px] overflow-hidden'>
               <img src={product.content[0].img} className="h-full w-full object-contain" />
             </div>
@@ -21,7 +29,7 @@ const Products = () => {
             <Link to={`/categories/jelly/${index}`}>
               <Button text="See more" />
             </Link>
-          </div>
+          </motion.div>
         ))}
       </section >
     </div>

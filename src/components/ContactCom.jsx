@@ -1,9 +1,16 @@
 import React from 'react'
+import { motion } from "framer-motion"
+import { fadeIn } from '../utils/motion'
 
 const ContactCom = () => {
   return (
     <div className='contact px-4'>
-      <div className='ccontainer capitalize flex flex-col lg:flex-row justify-between max-w-6xl mx-auto rounded-lg drop-shadow-lg'>
+      <motion.div
+        variants={fadeIn("", "", 0.2, 0.3)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        className='ccontainer capitalize flex flex-col lg:flex-row justify-between max-w-6xl mx-auto rounded-lg drop-shadow-lg'>
         <div className='basis-2/5 w-full grid place-items-center text-black/60 text-center lg:text-left text-3xl sm:text-4xl px-10 pt-5 lg:pt-0'>
           <h1>Submit your details and we will contact you</h1>
         </div>
@@ -36,7 +43,7 @@ const ContactCom = () => {
             <input type="submit" value="Send Message" className='hover:text-[#a81b81] border-[3px] rounded-md hover:border-[#a81b81] duration-100 hover:scale-105 border-black/60 text-lg cursor-pointer px-5 py-3' />
           </div>
         </form>
-      </div>
+      </motion.div>
     </div>
   )
 }

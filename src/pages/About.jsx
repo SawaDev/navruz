@@ -8,6 +8,8 @@ import { GiCupcake, GiPartyPopper, TbShieldCheck, BsStarFill, BiPalette, feature
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Thumbs } from "swiper";
 import { products } from '../dummyData.js'
+import { motion } from "framer-motion"
+import { fadeIn } from '../utils/motion'
 
 const images = [s_1, s_7, s_2, s_3, s_4, s_5, s_6]
 
@@ -22,19 +24,34 @@ const About = () => {
     <div>
       <Heading text="About" title="Frutti" />
       <section className='flex justify-around flex-col lg:flex-row mb-10'>
-        <div className='flex flex-col items-start justify-center basis-1/2'>
+        <motion.div
+          variants={fadeIn("right", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className='flex flex-col items-start justify-center basis-1/2'>
           <p className='text-gray-400'>Our Story and Mission</p>
           <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>Who We Are</h1>
           <p className='text-lg pt-4 pb-7'>At our company, we are passionate about making entertaining and delicious products that bring joy to people's lives. Our journey began with a simple idea: to create snacks and treats that are both fun and tasty. Over the years, we have grown into a thriving business that serves customers all over the world. But our mission remains the same: to make people happy through our products.</p>
-        </div>
-        <div className='flex justify-center'>
+        </motion.div>
+        <motion.div
+          variants={fadeIn("left", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className='flex justify-center'>
           <div className='max-h-[470px] max-w-[409px]'>
             <img className='w-full h-full' src={about_1} />
           </div>
-        </div>
+        </motion.div>
       </section>
       <section className='flex flex-col justify-around lg:flex-row-reverse'>
-        <div className='flex flex-col items-start justify-center basis-1/2'>
+        <motion.div
+          variants={fadeIn("left", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className='flex flex-col items-start justify-center basis-1/2'>
           <p className='text-gray-400'>What We Stand For and Believe In</p>
           <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>Our Values</h1>
           <p className='text-lg pt-4 pb-7'>Frutti imports all its raw materials by 90% and clearly controls the quality of the goods, it
@@ -42,53 +59,113 @@ const About = () => {
           <div onClick={handleMore}>
             <Button text="Read More" />
           </div>
-        </div>
-        <div className='flex justify-center'>
+        </motion.div>
+        <motion.div
+          variants={fadeIn("right", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className='flex justify-center'>
           <div className='max-h-[470px] max-w-[409px]'>
             <img className='w-full h-full' src={about_3} />
           </div>
-        </div>
+        </motion.div>
       </section>
       <section className='flex flex-col justify-around lg:flex-row my-12'>
-        <div className='flex flex-col items-start justify-center basis-1/2'>
+        <motion.div
+          variants={fadeIn("right", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className='flex flex-col items-start justify-center basis-1/2'>
           <p className='text-gray-400'>Innovative, Collaborative, and Customer-Focused</p>
           <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>Our Approach to Business</h1>
           <p className='text-lg pt-4 pb-7'>Frutti is one of the largest, high-quality producers with a large assortment of fruit jelly in
             Uzbekistan, has high-tech automated equipment and is expanding its range and volume
             of products every year, also Frutti today is an exporter to many countries Kazakhstan,
             Kyrgyzstan, Tajikistan, Afghanistan, Turkmenistan, Russia and Armenia. Today, it is negotiating for the supply of its products to Arab countries and African countries.</p>
-        </div>
-        <div className='flex justify-center'>
+        </motion.div>
+        <motion.div
+          variants={fadeIn("left", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className='flex justify-center'>
           <div className='max-h-[470px] max-w-[409px]'>
             <img className='w-full h-full' src={about_4} />
           </div>
-        </div>
+        </motion.div>
       </section>
       <section className='flex flex-col justify-around lg:flex-row-reverse gap-4'>
-        <div className='flex flex-col items-start justify-center basis-1/2'>
+        <motion.div
+          variants={fadeIn("left", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className='flex flex-col items-start justify-center basis-1/2'>
           <p className='text-gray-400'>The People Behind Our Success</p>
           <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>Meet Our Team</h1>
           <p className='text-lg pt-4 pb-7'>Behind every great company is a great team, and ours is no exception. We are a group of dedicated and talented individuals who share a love for creating entertaining and delicious products. From our product developers to our sales team, each member of our team plays an important role in our success. We are proud to work together to bring joy to people's lives.</p>
           <div onClick={handleMore}>
             <Button text="Read More" />
           </div>
-        </div>
-        <div className='flex justify-center'>
+        </motion.div>
+        <motion.div
+          variants={fadeIn("right", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className='flex justify-center'>
           <div className='max-h-[470px] max-w-[409px]'>
             <img className='w-full h-full' src={about_2} />
           </div>
-        </div>
+        </motion.div>
       </section>
       <Heading text="Why" title="Frutti" />
       <section className='mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-5'>
-        <Features imgUrl={features_1} icon={<GiPartyPopper />} title="Fun" text="Our products are designed to bring joy and laughter to your daily life. Whether it's our colorful candies or whimsical snacks, we strive to make every bite a fun-filled experience." />
-        <Features imgUrl={features_2} icon={<GiCupcake />} title="Tasty" text="Our products are not only fun, but also delicious. We carefully select the finest ingredients and craft them into delectable treats that will tantalize your taste buds." />
-        <Features imgUrl={features_3} icon={<TbShieldCheck />} title="Safe" text=" Your health and safety are our top priorities. We follow strict quality control measures to ensure that our products are safe for consumption and meet all regulatory standards." />
-        <Features imgUrl={features_4} icon={<BiPalette />} title="Creative" text=" Our team of innovative chefs and product developers are constantly pushing the boundaries of food creativity. From unique flavor combinations to visually stunning designs, our products are sure to impress." />
-        <Features imgUrl={features_5} icon={<BsStarFill />} title="Quality" text="We take pride in delivering the highest quality products to our customers. From the sourcing of our ingredients to the packaging of our products, we pay meticulous attention to every detail to ensure that our customers receive only the best." />
+        <motion.div
+          variants={fadeIn("up", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}>
+          <Features imgUrl={features_1} icon={<GiPartyPopper />} title="Fun" text="Our products are designed to bring joy and laughter to your daily life. Whether it's our colorful candies or whimsical snacks, we strive to make every bite a fun-filled experience." />
+        </motion.div>
+        <motion.div
+          variants={fadeIn("up", "", 0.2, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}>
+          <Features imgUrl={features_2} icon={<GiCupcake />} title="Tasty" text="Our products are not only fun, but also delicious. We carefully select the finest ingredients and craft them into delectable treats that will tantalize your taste buds." />
+        </motion.div>
+        <motion.div
+          variants={fadeIn("up", "", 0.4, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}>
+          <Features imgUrl={features_3} icon={<TbShieldCheck />} title="Safe" text=" Your health and safety are our top priorities. We follow strict quality control measures to ensure that our products are safe for consumption and meet all regulatory standards." />
+        </motion.div>
+        <motion.div
+          variants={fadeIn("up", "", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}>
+          <Features imgUrl={features_4} icon={<BiPalette />} title="Creative" text=" Our team of innovative chefs and product developers are constantly pushing the boundaries of food creativity. From unique flavor combinations to visually stunning designs, our products are sure to impress." />
+        </motion.div>
+        <motion.div
+          variants={fadeIn("up", "", 0.2, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}>
+          <Features imgUrl={features_5} icon={<BsStarFill />} title="Quality" text="We take pride in delivering the highest quality products to our customers. From the sourcing of our ingredients to the packaging of our products, we pay meticulous attention to every detail to ensure that our customers receive only the best." />
+        </motion.div>
       </section>
       <Heading text="Our" title="Sertificates" />
-      <section className='my-10'>
+      <motion.section
+        variants={fadeIn("", "", 0, 0.4)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        className='my-10'>
         <Swiper
           navigation={true}
           grabCursor={true}
@@ -118,7 +195,7 @@ const About = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </section>
+      </motion.section>
       {more && (
         <div className='fixed top-0 left-0 grid place-items-center h-screen w-screen bg-black/75 z-20'>
           <div className='absolute top-5 right-10 text-5xl text-[#a81b81] cursor-pointer' onClick={handleMore}>
