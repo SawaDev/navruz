@@ -16,6 +16,7 @@ import { Link } from 'react-router-dom'
 import { products } from "../dummyData.js"
 import Contact from '../components/ContactCom'
 import { fadeIn, move, textVariant, zoomIn } from "../utils/motion.js";
+import { useTranslation } from 'react-i18next'
 
 const items = [
   { image: banner_1, class: "img1" },
@@ -23,10 +24,11 @@ const items = [
   { image: banner_4, class: "img3" }
 ]
 
-
 const Home = () => {
   const [more, setMore] = useState(false)
   const [current, setCurrent] = useState(0);
+
+  const { t } = useTranslation();
 
   const handleClick = (index) => {
     setCurrent(index === current ? 0 : index);
@@ -38,8 +40,7 @@ const Home = () => {
   }
 
   return (
-    <div className=''>
-
+    <div className='overflow-hidden'>
       <section className='w-full relative backdrop-blur-[2px] pt-10 sm:pt-0 pb-[140px] flex flex-col lg:flex-row justify-between items-center'>
         <motion.div
           variants={fadeIn("right", "", 0, 0.7)}
@@ -47,17 +48,17 @@ const Home = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           className='flex flex-col max-w-[612px] sm:pt-[100px] sm:pb-[60px] sm:px-[20px] sm:pl-10'>
-          <h1 className='text-6xl font-bold mb-5 text-black'>Taste our <br /> <span className='text-6xl text-[#a81b81]'>
+          <h1 className='text-5xl sm:text-5xl font-semibold mb-5 text-black'>{t("Taste our")} <br /> <span className='text-6xl text-[#a81b81]'>
             <Typewriter
-              words={['Fun', 'Safe', 'Creative']}
+              words={[t("Fun"), t("Safe"), t("Creative")]}
               loop={true}
               deleteSpeed={50}
               delaySpeed={3000}
               typeSpeed={150}
             />
           </span>
-            <br /> Products</h1>
-          <p className='mb-10 text-lg max-w-lg text-gray-400'>Discover entertaining and delicious products that are bursting with flavor and personality at Navroz! Our mouthwatering creations are crafted to satisfy your cravings and bring people together.</p>
+            <br /> {t("products title")}</h1>
+          <p className='mb-10 text-lg max-w-lg text-gray-400'>{t("banner title")}</p>
           <Link to="/about">
             <Button text="About Us" />
           </Link>
@@ -153,8 +154,8 @@ const Home = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           className='flex flex-col px-4 sm:px-0 items-start justify-center basis-1/2'>
-          <h1 className='text-2xl text-center lg:text-left sm:text-4xl font-semibold text-[#a81b81]'>Crafting Memorable Experiences</h1>
-          <p className='text-lg pt-4 pb-7'>At Frutti, we believe that food is not just about sustenance, but also about creating lasting memories. That's why we're dedicated to crafting delicious and entertaining products that go beyond just satisfying your hunger.</p>
+          <h1 className='text-2xl text-center lg:text-left sm:text-4xl font-semibold text-[#a81b81]'>{t("crafting")}</h1>
+          <p className='text-lg pt-4 pb-7'>{t("crafting text")}</p>
           <Link to="/products">
             <Button text="See All" />
           </Link>
@@ -177,8 +178,8 @@ const Home = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           className='flex flex-col items-start justify-center basis-1/2 px-4 sm:px-0'>
-          <h1 className='text-3xl text-center lg:text-left sm:text-4xl font-semibold text-[#a81b81]'>Our Dedicated Team</h1>
-          <p className='text-lg pt-4 pb-7'>Our team of 100 talented and dedicated staff members work tirelessly to ensure that every product we produce meets our high standards for taste and quality. From our chefs to our production and packaging teams, we are committed to providing our customers with the best possible experience, every time.</p>
+          <h1 className='text-3xl text-center lg:text-left sm:text-4xl font-semibold text-[#a81b81]'>{t("our team")}</h1>
+          <p className='text-lg pt-4 pb-7'>{t("our team text")}</p>
           <div onClick={handleMore}>
             <Button text="Read More" />
           </div>
@@ -201,56 +202,48 @@ const Home = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}>
-          <Features imgUrl={features_1} icon={<GiPartyPopper />} title="Fun" text="Our products are designed to bring joy and laughter to your daily life. Whether it's our colorful candies or whimsical snacks, we strive to make every bite a fun-filled experience." />
+          <Features imgUrl={features_1} icon={<GiPartyPopper />} title="Fun" text="f 1" />
         </motion.div>
         <motion.div
           variants={fadeIn("up", "", 0.2, 0.3)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}>
-          <Features imgUrl={features_2} icon={<GiCupcake />} title="Tasty" text="Our products are not only fun, but also delicious. We carefully select the finest ingredients and craft them into delectable treats that will tantalize your taste buds." />
+          <Features imgUrl={features_2} icon={<GiCupcake />} title="Tasty" text="f 2" />
         </motion.div>
         <motion.div
           variants={fadeIn("up", "", 0.4, 0.3)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}>
-          <Features imgUrl={features_3} icon={<TbShieldCheck />} title="Safe" text=" Your health and safety are our top priorities. We follow strict quality control measures to ensure that our products are safe for consumption and meet all regulatory standards." />
+          <Features imgUrl={features_3} icon={<TbShieldCheck />} title="Safe" text="f 3" />
         </motion.div>
         <motion.div
           variants={fadeIn("up", "", 0, 0.3)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}>
-          <Features imgUrl={features_4} icon={<BiPalette />} title="Creative" text=" Our team of innovative chefs and product developers are constantly pushing the boundaries of food creativity. From unique flavor combinations to visually stunning designs, our products are sure to impress." />
+          <Features imgUrl={features_4} icon={<BiPalette />} title="Creative" text="f 4" />
         </motion.div>
         <motion.div
           variants={fadeIn("up", "", 0.2, 0.3)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}>
-          <Features imgUrl={features_5} icon={<BsStarFill />} title="Quality" text="We take pride in delivering the highest quality products to our customers. From the sourcing of our ingredients to the packaging of our products, we pay meticulous attention to every detail to ensure that our customers receive only the best." />
+          <Features imgUrl={features_5} icon={<BsStarFill />} title="Quality" text="f 5" />
         </motion.div>
       </div>
       <Contact />
       {
         more && (
-          <div className='fixed top-0 left-0 grid place-items-center h-screen py-10 w-screen bg-black/75 z-20'>
-            <div className='absolute top-0 right-0 lg:top-5 lg:right-10 text-5xl text-[#a81b81] cursor-pointer z-10' onClick={handleMore}>
+          <div className='fixed top-0 left-0 grid place-items-center h-screen w-screen bg-black/75 z-20'>
+            <div className='absolute top-5 right-10 text-5xl text-[#a81b81] cursor-pointer' onClick={handleMore}>
               <MdClose />
             </div>
-            <section className='bg-white max-h-[calc(100vh-100px)] relative flex flex-col items-center overflow-auto py-5 px-6 gap-3 rounded-lg'>
-              <h1 className='text-2xl sm:text-3xl font-semibold text-[#a81b81]'>About our Company</h1>
-              <p>Fruit jelly under the trademark “FRUTTI” was founded in 2011, it was founded by a company under the brand “Navro'z". Which was originally engaged in the production of roasted
-                sunfower seeds, Navruz still produces sunfower seeds. Navro'z company owns production  facilities with a total of 4,000 squares and a staff of 100 people. <br /><br />Frutti is one of the largest, high-quality producers with a large assortment of fruit jelly in
-                Uzbekistan, has high-tech automated equipment and is expanding its range and volume
-                of products every year, also Frutti today is an exporter to many countries Kazakhstan,
-                Kyrgyzstan, Tajikistan, Afghanistan, Turkmenistan, Russia and Armenia. Today, it is negotiating for the supply of its products to Arab countries and African countries.<br /><br /> Frutti imports all its raw materials by 90% and clearly controls the quality of the goods, it
-                should also be noted that Frutti uses all raw materials with a Halal certificate. The company's goal is to be a product leader in Asian countries. <br /><br /> At Frutti, we believe that food is not just about sustenance, but also about creating lasting memories. That's why we're dedicated
-                to crafting delicious and entertaining products that go beyond just satisfying your hunger. Our team of expert chefs and culinary artists use only the highest quality ingredients to create unique and memorable experiences for our customers. We believe that every meal should be an
-                opportunity for joy, and we're committed to providing just that. Whether you're indulging in one of our sweet treats or enjoying a savory snack, we strive to create moments of happiness and delight in every bite. Come and join us on this journey of taste and experience, and let us help you
-                create memories that will last a lifetime.</p>
-            </section>
+            <div className='bg-white relative flex flex-col items-center overflow-auto py-5 px-6 gap-3 max-w-3xl rounded-lg'>
+              <h1 className='text-4xl font-semibold text-[#a81b81]'></h1>
+              <p className=''>{t("text more 1")} <br /><br />{t("text more 2")}<br /><br />{t("a tt2")}<br /><br />{t("text more 3")}</p>
+            </div>
           </div>
         )
       }

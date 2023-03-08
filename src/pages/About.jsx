@@ -10,19 +10,21 @@ import { Autoplay, Navigation, Thumbs } from "swiper";
 import { products } from '../dummyData.js'
 import { motion } from "framer-motion"
 import { fadeIn } from '../utils/motion'
+import { useTranslation } from 'react-i18next'
 
 const images = [s_1, s_7, s_2, s_3, s_4, s_5, s_6]
 
 const About = () => {
   const [more, setMore] = useState(false)
+  const { t } = useTranslation()
 
   const handleMore = () => {
     setMore(!more)
     console.log(more)
   }
   return (
-    <div>
-      <Heading text="About" title="Frutti" />
+    <div className='overflow-hidden'>
+      <Heading title="Company" text="About Our" />
       <section className='flex justify-around flex-col lg:flex-row mb-10'>
         <motion.div
           variants={fadeIn("right", "", 0, 0.3)}
@@ -30,9 +32,9 @@ const About = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           className='flex flex-col items-start justify-center basis-1/2'>
-          <p className='text-gray-400'>Our Story and Mission</p>
-          <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>Who We Are</h1>
-          <p className='text-lg pt-4 pb-7'>At our company, we are passionate about making entertaining and delicious products that bring joy to people's lives. Our journey began with a simple idea: to create snacks and treats that are both fun and tasty. Over the years, we have grown into a thriving business that serves customers all over the world. But our mission remains the same: to make people happy through our products.</p>
+          <p className='text-gray-400 capitalize'>{t("a st1")}</p>
+          <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>{t("a t1")}</h1>
+          <p className='text-lg pt-4 pb-7'>{t("a tt1")}</p>
         </motion.div>
         <motion.div
           variants={fadeIn("left", "", 0, 0.3)}
@@ -52,10 +54,9 @@ const About = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           className='flex flex-col items-start justify-center basis-1/2'>
-          <p className='text-gray-400'>What We Stand For and Believe In</p>
-          <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>Our Values</h1>
-          <p className='text-lg pt-4 pb-7'>Frutti imports all its raw materials by 90% and clearly controls the quality of the goods, it
-            should also be noted that Frutti uses all raw materials with a Halal certicate. The company's goal is to be a product leader in Asian countries.</p>
+          <p className='text-gray-400 capitalize'>{t("a st2")}</p>
+          <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>{t("a t2")}</h1>
+          <p className='text-lg pt-4 pb-7'>{t("a tt2")}</p>
           <div onClick={handleMore}>
             <Button text="Read More" />
           </div>
@@ -78,12 +79,9 @@ const About = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           className='flex flex-col items-start justify-center basis-1/2'>
-          <p className='text-gray-400'>Innovative, Collaborative, and Customer-Focused</p>
-          <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>Our Approach to Business</h1>
-          <p className='text-lg pt-4 pb-7'>Frutti is one of the largest, high-quality producers with a large assortment of fruit jelly in
-            Uzbekistan, has high-tech automated equipment and is expanding its range and volume
-            of products every year, also Frutti today is an exporter to many countries Kazakhstan,
-            Kyrgyzstan, Tajikistan, Afghanistan, Turkmenistan, Russia and Armenia. Today, it is negotiating for the supply of its products to Arab countries and African countries.</p>
+          <p className='text-gray-400 capitalize'>{t("a st3")}</p>
+          <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>{t("a t3")}</h1>
+          <p className='text-lg pt-4 pb-7'>{t("a tt3")}</p>
         </motion.div>
         <motion.div
           variants={fadeIn("left", "", 0, 0.3)}
@@ -103,9 +101,9 @@ const About = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           className='flex flex-col items-start justify-center basis-1/2'>
-          <p className='text-gray-400'>The People Behind Our Success</p>
-          <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>Meet Our Team</h1>
-          <p className='text-lg pt-4 pb-7'>Behind every great company is a great team, and ours is no exception. We are a group of dedicated and talented individuals who share a love for creating entertaining and delicious products. From our product developers to our sales team, each member of our team plays an important role in our success. We are proud to work together to bring joy to people's lives.</p>
+          <p className='text-gray-400 capitalize'>{t("a st4")}</p>
+          <h1 className='text-3xl sm:text-4xl font-semibold text-[#a81b81]'>{t("a t4")}</h1>
+          <p className='text-lg pt-4 pb-7'>{t("a tt4")}</p>
           <div onClick={handleMore}>
             <Button text="Read More" />
           </div>
@@ -202,16 +200,8 @@ const About = () => {
             <MdClose />
           </div>
           <div className='bg-white relative flex flex-col items-center overflow-auto py-5 px-6 gap-3 max-w-3xl rounded-lg'>
-            <h1 className='text-4xl font-semibold text-[#a81b81]'>About our Company</h1>
-            <p className=''>Fruit jelly under the trademark “FRUTTI” was founded in 2011, it was founded by a company under the brand “Navro'z". Which was originally engaged in the production of roasted
-              sunfower seeds, Navruz still produces sunfower seeds. Navro'z company owns production  facilities with a total of 4,000 squares and a staff of 100 people. <br /><br />Frutti is one of the largest, high-quality producers with a large assortment of fruit jelly in
-              Uzbekistan, has high-tech automated equipment and is expanding its range and volume
-              of products every year, also Frutti today is an exporter to many countries Kazakhstan,
-              Kyrgyzstan, Tajikistan, Afghanistan, Turkmenistan, Russia and Armenia. Today, it is negotiating for the supply of its products to Arab countries and African countries.<br /><br /> Frutti imports all its raw materials by 90% and clearly controls the quality of the goods, it
-              should also be noted that Frutti uses all raw materials with a Halal certificate. The company's goal is to be a product leader in Asian countries. <br /><br /> At Frutti, we believe that food is not just about sustenance, but also about creating lasting memories. That's why we're dedicated
-              to crafting delicious and entertaining products that go beyond just satisfying your hunger. Our team of expert chefs and culinary artists use only the highest quality ingredients to create unique and memorable experiences for our customers. We believe that every meal should be an
-              opportunity for joy, and we're committed to providing just that. Whether you're indulging in one of our sweet treats or enjoying a savory snack, we strive to create moments of happiness and delight in every bite. Come and join us on this journey of taste and experience, and let us help you
-              create memories that will last a lifetime.</p>
+            <h1 className='text-4xl font-semibold text-[#a81b81]'></h1>
+            <p className=''>{t("text more 1")} <br /><br />{t("text more 2")}<br /><br />{t("a tt2")}<br /><br />{t("text more 3")}</p>
           </div>
         </div>
       )}

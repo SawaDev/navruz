@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-
 import './App.css'
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Test from './pages/Test'
@@ -14,8 +12,10 @@ import Products from './pages/Products';
 import SingleProduct from './pages/SingleProduct';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import { useTranslation } from "react-i18next"
 
 function App() {
+  const { t } = useTranslation()
 
   return (
     <BrowserRouter>
@@ -37,7 +37,7 @@ function App() {
           <section className='flex flex-col sm:flex-row gap-10 flex-wrap py-5 text-white'>
             <div className='flex flex-col flex-1'>
               <img src={logo_white} className="max-w-[150px]" />
-              <p className='text-gray-300 mb-3'>Stay connected with us through our social media channels and never miss out on our latest creations. Join our community today!</p>
+              <p className='text-gray-300 mb-3'>{t("footer desc")}</p>
               <div className='icons flex gap-2'>
                 <a className='p-2 text-lg border-2 rounded-full opacity-70 hover:opacity-100 drop-shadow-lg hover:shadow-white '>
                   <FaFacebookF />
@@ -54,22 +54,22 @@ function App() {
               </div>
             </div>
             <div className='flex flex-col flex-1'>
-              <h1 className='font-semibold text-lg mb-3'>Useful Links</h1>
+              <h1 className='font-semibold text-lg mb-3'>{t("links")}</h1>
               <Link to="/">
-                <p className='italic text-gray-300 cursor-pointer ease-in duration-100 hover:pl-1'>Home</p>
+                <p className='italic text-gray-300 cursor-pointer ease-in duration-100 hover:pl-1 hover:text-white'>{t("Home")}</p>
               </Link>
               <Link to="/about">
-                <p className='italic text-gray-300 cursor-pointer ease-in duration-100 hover:pl-1'>About</p>
+                <p className='italic text-gray-300 cursor-pointer ease-in duration-100 hover:pl-1 hover:text-white'>{t("About Us")}</p>
               </Link>
               <Link to="/products">
-                <p className='italic text-gray-300 cursor-pointer ease-in duration-100 hover:pl-1'>Products</p>
+                <p className='italic text-gray-300 cursor-pointer ease-in duration-100 hover:pl-1 hover:text-white'>{t("Products")}</p>
               </Link>
               <Link to="/contact">
-                <p className='italic text-gray-300 cursor-pointer ease-in duration-100 hover:pl-1'>Contact Us</p>
+                <p className='italic text-gray-300 cursor-pointer ease-in duration-100 hover:pl-1 hover:text-white'>{t("Contact Us")}</p>
               </Link>
             </div>
             <div className='flex flex-col flex-1'>
-              <h1 className='font-semibold text-lg mb-3'>Contact Us</h1>
+              <h1 className='font-semibold text-lg mb-3'>{t("Contact Us")}</h1>
               <div>
                 <p className='capitalize text-sm text-gray-300'>
                   Shaykhontokhur region<br />
@@ -78,8 +78,8 @@ function App() {
                 </p>
               </div>
               <div>
-                <p className='font-semibold text-gray-300'>Phone: <a href="tel:+998957902108" className='font-light hover:text-gray-300'>+998957902108</a></p>
-                <p className='font-semibold text-gray-300'>Email: <a href="mailto:sardormahmudov16@gmail.com" className='font-light hover:text-gray-300'>sardormahmudov16@gmail</a></p>
+                <p className='font-semibold text-gray-300'>{t("phone")}: <a href="tel:+998957902108" className='font-light hover:text-white'>+998957902108</a></p>
+                <p className='font-semibold text-gray-300'>{t("Home")}: <a href="mailto:sardormahmudov16@gmail.com" className='font-light hover:text-white'>sardormahmudov16@gmail</a></p>
               </div>
             </div>
           </section>
