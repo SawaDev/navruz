@@ -236,12 +236,12 @@ const Home = () => {
       <Contact />
       {
         more && (
-          <div className='fixed top-0 left-0 grid place-items-center h-screen w-screen bg-black/75 z-20'>
-            <div className='absolute top-5 right-10 text-5xl text-[#a81b81] cursor-pointer' onClick={handleMore}>
+          <div className='fixed top-0 left-0 grid place-items-center h-screen w-screen overflow-y-scroll bg-black/75 z-20'>
+            <div className='absolute top-2 right-2 sm:top-5 sm:right-10 text-4xl sm:text-5xl text-[#a81b81] cursor-pointer z-50' onClick={handleMore}>
               <MdClose />
             </div>
-            <div className='bg-white relative flex flex-col items-center overflow-auto py-5 px-6 gap-3 max-w-3xl rounded-lg'>
-              <h1 className='text-4xl font-semibold text-[#a81b81]'></h1>
+            <div className='bg-white relative flex flex-col items-center  py-5 px-6 gap-3 max-w-3xl sm:first-letter:rounded-lg'>
+              <h1 className='text-4xl font-semibold text-[#a81b81]'>{t("About our Company")}</h1>
               <p className=''>{t("text more 1")} <br /><br />{t("text more 2")}<br /><br />{t("a tt2")}<br /><br />{t("text more 3")}</p>
             </div>
           </div>
