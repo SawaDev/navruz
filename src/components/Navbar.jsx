@@ -120,7 +120,7 @@ const Navbar = () => {
             <div className='flex gap-4'>
               <a
                 className='flex items-center gap-1'
-                href="/src/assets/catalogue_ru.pdf" download
+                href="https://drive.google.com/drive/u/2/folders/1TnOLEiQAIgUUNlTLwIa_h2d31VVaoNKm" download
                 onClick={() => setDownload(false)}
               >
                 <RU title="Russia" className='block z-40 h-4' />
@@ -128,7 +128,7 @@ const Navbar = () => {
               </a>
               <a
                 className='flex items-center gap-1'
-                href="/src/assets/catalogue_en.pdf" download
+                href="https://drive.google.com/drive/u/2/folders/1TnOLEiQAIgUUNlTLwIa_h2d31VVaoNKm" download
                 onClick={() => setDownload(false)}
               >
                 <GB title="Great Britain" className='block z-40 h-4' />
