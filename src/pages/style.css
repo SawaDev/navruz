@@ -121,3 +121,7 @@
   z-index: 10000;
   cursor: pointer;
 }
+
+.aboutSwiper {
+  padding-bottom: 50px;
+}

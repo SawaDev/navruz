@@ -24,7 +24,7 @@ const Products = () => {
             </div>
             <div>
               <h1 className='text-3xl text-white font-semibold mt-4 px-5 py-3 bg-[#e7316d] w-fit rounded-tl-[28px] rounded-br-[28px]'>Fruit Jelly</h1>
-              <h1 className='text-3xl text-white font-semibold -mt-2 ml-2 mb-5 px-5 py-2 bg-[#804896] w-fit rounded-tl-[34px] rounded-br-[34px] capitalize'>{product.content[0].type}</h1>
+              <h1 className='text-2xl sm:text-3xl text-white font-semibold -mt-2 ml-2 mb-5 px-5 py-2 bg-[#804896] w-fit rounded-tl-[34px] rounded-br-[34px] capitalize'>{product.content[0].type}</h1>
             </div>
             <Link to={`/categories/jelly/${index}`}>
               <Button text="See more" />

@@ -126,35 +126,35 @@ const About = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}>
-          <Features imgUrl={features_1} icon={<GiPartyPopper />} title="Fun" text="Our products are designed to bring joy and laughter to your daily life. Whether it's our colorful candies or whimsical snacks, we strive to make every bite a fun-filled experience." />
+          <Features imgUrl={features_1} icon={<GiPartyPopper />} title="Fun" text="f 1" />
         </motion.div>
         <motion.div
           variants={fadeIn("up", "", 0.2, 0.3)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}>
-          <Features imgUrl={features_2} icon={<GiCupcake />} title="Tasty" text="Our products are not only fun, but also delicious. We carefully select the finest ingredients and craft them into delectable treats that will tantalize your taste buds." />
+          <Features imgUrl={features_2} icon={<GiCupcake />} title="Tasty" text="f 2" />
         </motion.div>
         <motion.div
           variants={fadeIn("up", "", 0.4, 0.3)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}>
-          <Features imgUrl={features_3} icon={<TbShieldCheck />} title="Safe" text=" Your health and safety are our top priorities. We follow strict quality control measures to ensure that our products are safe for consumption and meet all regulatory standards." />
+          <Features imgUrl={features_3} icon={<TbShieldCheck />} title="Safe" text="f 3" />
         </motion.div>
         <motion.div
           variants={fadeIn("up", "", 0, 0.3)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}>
-          <Features imgUrl={features_4} icon={<BiPalette />} title="Creative" text=" Our team of innovative chefs and product developers are constantly pushing the boundaries of food creativity. From unique flavor combinations to visually stunning designs, our products are sure to impress." />
+          <Features imgUrl={features_4} icon={<BiPalette />} title="Creative" text="f 4" />
         </motion.div>
         <motion.div
           variants={fadeIn("up", "", 0.2, 0.3)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}>
-          <Features imgUrl={features_5} icon={<BsStarFill />} title="Quality" text="We take pride in delivering the highest quality products to our customers. From the sourcing of our ingredients to the packaging of our products, we pay meticulous attention to every detail to ensure that our customers receive only the best." />
+          <Features imgUrl={features_5} icon={<BsStarFill />} title="Quality" text="f 5" />
         </motion.div>
       </section>
       <Heading text="Our" title="Sertificates" />

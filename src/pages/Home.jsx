@@ -9,20 +9,25 @@ import { useState } from 'react'
 import { MdClose } from "react-icons/md"
 import Features from '../components/Features'
 import {
-  banner_1, banner_2, banner_4, GiCupcake, GiPartyPopper, TbShieldCheck, BsStarFill, BiPalette, features_1, features_2, features_3, features_4, features_5
+  banner_1, banner_2, banner_4, GiCupcake, GiPartyPopper, TbShieldCheck, BsStarFill, BiPalette, features_1, features_2, features_3, features_4, features_5, s_1, s_2, s_3, s_4, s_5, s_6, s_7
 } from '../assets/index.js'
 import { motion } from "framer-motion"
 import { Link } from 'react-router-dom'
 import { products } from "../dummyData.js"
 import Contact from '../components/ContactCom'
-import { fadeIn, move, textVariant, zoomIn } from "../utils/motion.js";
+import { fadeIn } from "../utils/motion.js";
 import { useTranslation } from 'react-i18next'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Thumbs, Pagination } from "swiper";
 
 const items = [
   { image: banner_1, class: "img1" },
   { image: banner_2, class: "img2" },
   { image: banner_4, class: "img3" }
 ]
+
+const images = [s_1, s_7, s_2, s_3, s_4, s_5, s_6]
+
 
 const Home = () => {
   const [more, setMore] = useState(false)
@@ -102,7 +107,7 @@ const Home = () => {
         </motion.ul>
       </section>
       <Heading title="Products" text="Our" />
-      <section className='flex flex-wrap gap-5 justify-around w-full'>
+      {/* <section className='flex flex-wrap gap-5 justify-around w-full'>
         <motion.div
           variants={fadeIn("up", "", 0, 0.3)}
           initial="hidden"
@@ -145,7 +150,57 @@ const Home = () => {
             <Button text="See more" />
           </Link>
         </motion.div>
-      </section>
+      </section> */}
+      <motion.div
+        variants={fadeIn("", "", 0, 0.4)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        className='my-10 max-w-7xl mx-auto'>
+        <Swiper
+          // navigation={true}
+          // loop={true}
+          pagination={{
+            clickable: true,
+          }}
+          // centeredSlides={true}
+          // autoplay={{
+          //   delay: 1500,
+          //   disableOnInteraction: false,
+          // }}
+          spaceBetween={20}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            576: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+          }}
+          modules={[Navigation, Thumbs, Autoplay, Pagination]}
+          className='p-10 pb-14'
+        >
+          {products.map(product => (
+            <SwiperSlide
+              className='outline w-fit flex flex-col items-center p-10 rounded-xl'>
+              <div className='max-w-[250px] h-[250px] overflow-hidden'>
+                <img src={product.content[0].img} className="h-full w-full object-contain" />
+              </div>
+              <div className=''>
+                <h1 className='text-3xl text-white font-semibold mt-4 px-5 py-3 bg-[#e7316d] w-fit rounded-tl-[28px] rounded-br-[28px]'>Fruit Jelly</h1>
+                <h1 className={`${product.content[0].type === "energy package" ? 'text-xl' : 'text-2xl' } sm:text-3xl text-white font-semibold -mt-2 ml-2 mb-5 px-5 py-2 bg-[#804896] w-fit rounded-tl-[34px] rounded-br-[34px] capitalize`}>{product.content[0].type}</h1>
+              </div>
+              <Link to="/categories/jelly/0">
+                <Button text="See more" />
+              </Link>
+            </SwiperSlide>
+          ))}
+
+        </Swiper>
+      </motion.div>
       <Heading title="Company" text="About Our" />
       <section className='flex justify-around flex-col gap-10 lg:flex-row mb-10'>
         <motion.div

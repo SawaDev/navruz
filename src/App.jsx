@@ -3,6 +3,7 @@ import './App.css'
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import "swiper/css/pagination";
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Test from './pages/Test'
@@ -35,8 +36,10 @@ function App() {
 
         <div className='bg-[#a81b81]'>
           <section className='flex flex-col sm:flex-row gap-10 flex-wrap py-5 text-white'>
-            <div className='flex flex-col flex-1'>
-              <img src={logo_white} className="max-w-[150px]" />
+            <div className='flex flex-col flex-1 text-left'>
+              <div>
+                <img src={logo_white} className="max-h-12 object-contain" />
+              </div>
               <p className='text-gray-300 mb-3'>{t("footer desc")}</p>
               <div className='icons flex gap-2'>
                 <a className='p-2 text-lg border-2 rounded-full opacity-70 hover:opacity-100 drop-shadow-lg hover:shadow-white '>

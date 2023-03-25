@@ -45,6 +45,7 @@ export const products = [
     category: "jelly",
     content: [
       {
+        general: "Stick",
         type: "stick package",
         pieces: "6 pieces",
         mass: "70g",
@@ -65,7 +66,8 @@ export const products = [
       {
         type: "stick carton",
         pieces: "70g x 100 packages",
-        mass: "7kg",
+        net_weight: "7kg",
+        gross_weight: "7.5kg",
         volume: "18x32x32",
         exDate: "12 months",
         img: stick_4,
@@ -81,6 +83,7 @@ export const products = [
     category: "jelly",
     content: [
       {
+        general: "Energy",
         type: "energy package",
         pieces: "6 pieces",
         mass: "70g",
@@ -94,7 +97,8 @@ export const products = [
       {
         type: "energy carton",
         pieces: "70g x 100 packages",
-        mass: "7kg",
+        net_weight: "7kg",
+        gross_weight: "7.5kg",
         volume: "18x32x32",
         exDate: "12 months",
         img: energy_3,
@@ -105,6 +109,7 @@ export const products = [
     category: "jelly",
     content: [
       {
+        general: "Mix",
         type: "mix package",
         pieces: "20 pieces",
         mass: "340g",
@@ -113,7 +118,8 @@ export const products = [
       {
         type: "mix carton",
         pieces: "340g x 18 packages",
-        mass: "6.12kg",
+        net_weight: "6.12kg",
+        gross_weight: "6.7kg",
         volume: "18x32x32",
         exDate: "12 months",
         img: mix_2,
@@ -154,6 +160,7 @@ export const products = [
     category: "jelly",
     content: [
       {
+        general: "Cup",
         type: "cup package",
         pieces: "30 pieces",
         mass: "390g",
@@ -162,7 +169,8 @@ export const products = [
       {
         type: "cup carton",
         pieces: "390g x 14 packages",
-        mass: "5.46kg",
+        net_weight: "5.46kg",
+        gross_weight: "5.8kg",
         volume: "14x24x40",
         exDate: "12 months",
         img: cup_1_2,
@@ -203,6 +211,58 @@ export const products = [
     category: "jelly",
     content: [
       {
+        general: "Ring",
+        type: "ring package",
+        pieces: "10 pieces",
+        mass: "300g",
+        img: ring_1,
+      },
+      {
+        type: "ring",
+        mass: "30g",
+        img: ring_2,
+      },
+      {
+        type: "ring carton",
+        pieces: "300g x 20 packages",
+        net_weight: "6kg",
+        gross_weight: "6.5kg",
+        volume: "12x29x42",
+        exDate: "12 months",
+        img: ring_3,
+      },
+    ]
+  },
+  {
+    category: "jelly",
+    content: [
+      {
+        general: "Drink",
+        type: "drink package",
+        pieces: "15 pieces",
+        mass: "300g",
+        img: drink_1,
+      },
+      {
+        type: "drink",
+        mass: "20g",
+        img: drink_2,
+      },
+      {
+        type: "carton",
+        pieces: "300g x 15 packages",
+        net_weight: "4.5kg",
+        gross_weight: "4.8kg",
+        volume: "15x25x42",
+        exDate: "12 months",
+        img: drink_3,
+      },
+    ]
+  },
+  {
+    category: "jelly",
+    content: [
+      {
         type: "mix box",
         pieces: "50 pieces",
         mass: "850g",
@@ -211,7 +271,8 @@ export const products = [
       {
         type: "mix box carton",
         pieces: "850g x 6 packages",
-        mass: "5.1kg",
+        net_weight: "5.1kg",
+        gross_weight: "5.5kg",
         volume: "18x16x38",
         exDate: "12 months",
         img: mix_box_1,
@@ -260,7 +321,8 @@ export const products = [
       {
         type: "cup box carton",
         pieces: "910g x 6 packages",
-        mass: "5.46kg",
+        net_weight: "5.46kg",
+        gross_weight: "5.9kg",
         volume: "18x16x38",
         exDate: "12 months",
         img: cup_box_2,
@@ -314,7 +376,8 @@ export const products = [
       {
         type: "pillow carton",
         pieces: "960g x 6 packages",
-        mass: "7kg",
+        net_weight: "5.76kg",
+        gross_weight: "6.5kg",
         volume: "18x16x38",
         exDate: "12 months",
         img: pillow_3,
@@ -325,63 +388,16 @@ export const products = [
     category: "jelly",
     content: [
       {
-        type: "ring package",
-        pieces: "10 pieces",
-        mass: "300g",
-        img: ring_1,
-      },
-      {
-        type: "ring",
-        mass: "30g",
-        img: ring_2,
-      },
-      {
-        type: "ring carton",
-        pieces: "300g x 20 packages",
-        mass: "7kg",
-        volume: "12x29x42",
-        exDate: "12 months",
-        img: ring_3,
-      },
-    ]
-  },
-  {
-    category: "jelly",
-    content: [
-      {
-        type: "drink package",
-        pieces: "15 pieces",
-        mass: "300g",
-        img: drink_1,
-      },
-      {
-        type: "drink",
-        mass: "20g",
-        img: drink_2,
-      },
-      {
-        type: "carton",
-        pieces: "300g x 15 packages",
-        mass: "4.5kg",
-        volume: "15x25x42",
-        exDate: "12 months",
-        img: drink_3,
-      },
-    ]
-  },
-  {
-    category: "jelly",
-    content: [
-      {
         type: "car 170",
-        pieces: "70 pieces",
-        mass: "910g",
+        pieces: "170 pieces",
+        mass: "2210g",
         img: car_1,
       },
       {
         type: "car 170 carton",
         pieces: "2210g x 6 packages",
-        mass: "5.46kg",
+        net_weight: "13.26kg",
+        gross_weight: "14.5kg",
         volume: "36x30x51",
         exDate: "12 months",
         img: car_2,
