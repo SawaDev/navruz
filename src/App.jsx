@@ -8,15 +8,21 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Test from './pages/Test'
 import { FaFacebookF, FaInstagram, FaTelegramPlane, FaTwitter } from "react-icons/fa"
-import { logo_white } from "./assets/index.js"
+import { logo_white, halal } from "./assets/index.js"
 import Products from './pages/Products';
 import SingleProduct from './pages/SingleProduct';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import { useTranslation } from "react-i18next"
+import { useEffect, useState } from 'react';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   const { t } = useTranslation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <BrowserRouter>
@@ -25,6 +31,7 @@ function App() {
           <Navbar />
         </div>
 
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/test' element={<Test />} />
@@ -87,6 +94,7 @@ function App() {
             </div>
           </section>
         </div>
+
       </main>
     </BrowserRouter>
   )

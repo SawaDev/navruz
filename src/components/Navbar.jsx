@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from "react-router-dom"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { MdClose, MdOutlineFileDownload } from 'react-icons/md'
@@ -8,22 +8,41 @@ import { BsGlobe2 } from "react-icons/bs"
 import { AiFillCaretDown } from "react-icons/ai"
 import { useTranslation } from "react-i18next"
 import i18n from '../i18n';
-import { GB, RU, US, UZ } from 'country-flag-icons/react/3x2'
+import { GB, RU, UZ } from 'country-flag-icons/react/3x2'
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [active, setActive] = useState(false);
   const [download, setDownload] = useState(false);
+  const ref = useRef();
+
   const { t } = useTranslation();
+
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   }
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setActive(false);
+        setDownload(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref]);
+
   return (
-    <section className='w-screen flex justify-between items-center py-3 text-white'>
+    <section ref={ref} className='w-screen flex justify-between items-center py-3 text-white'>
       <Link to="/">
         <img src={logo} className="h-20" />
       </Link>
+
       <div className='flex items-center lg:gap-4'>
         <div className='lg:hidden text-3xl text-[#a81b81] mr-4 cursor-pointer'>
           <GiHamburgerMenu onClick={() => setMenu(true)} />
@@ -57,6 +76,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
+
         <ul className='hidden lg:flex flex-row items-center text-black gap-6'>
           <li className='item text-xl'>
             <Link to="/about">
@@ -68,12 +88,43 @@ const Navbar = () => {
               {t("Products")}
             </Link>
           </li>
+
+          <div className='realtive cursor-pointer text-black flex items-center justify-center text-xl'>
+            <div className='flex items-center justify-center gap-1' onClick={() => setDownload(!download)}>
+              <p>{t("Catalogue")}</p>
+            </div>
+            <div className={`absolute -bottom-12 bg-gray-100 z-10 ${download ? 'flex flex-col gap-1 px-3 py-1 border-[#a81b81] border-[1px] rounded-xl' : 'hidden'}`}>
+              <p>{t("Catalogue text")}</p>
+              <div className='flex gap-4'>
+                <a
+                  className='flex items-center gap-1'
+                  href="https://drive.google.com/file/d/11GZjEENskrRGpY7Uu5OyiE8dIod0ww3e/view?usp=share_link"
+                  target="_blank"
+                  onClick={() => setDownload(false)}
+                >
+                  <RU title="Russia" className='block z-40 h-4' />
+                  <span>RU</span>
+                </a>
+                <a
+                  className='flex items-center gap-1'
+                  href="https://drive.google.com/file/d/1sTUN4y0Igr19Zwv8Q6naKOhr__W-DSPu/view?usp=share_link"
+                  target="_blank"
+                  onClick={() => setDownload(false)}
+                >
+                  <GB title="Great Britain" className='block z-40 h-4' />
+                  <span>EN</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div className='hidden sm:block'>
             <Link to="/contact">
               <Button text="Contact Us" />
             </Link>
           </div>
         </ul>
+
         <div className='relative inline-block'>
           <div
             onClick={() => setActive(!active)}
@@ -111,16 +162,16 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className='realtive inline-block' onClick={() => setDownload(!download)}>
-          <div className='cursor-pointer flex'>
-            <MdOutlineFileDownload className='text-3xl text-[#a81b81]' />
-          </div>
-          <div className={`absolute mt-3 right-8 bg-gray-100 text-black z-10 ${download ? 'flex flex-col gap-1 px-3 py-1 border-[#a81b81] border-[1px] rounded-xl' : 'hidden'}`}>
-            <p>Download Catalogue In:</p>
+
+        <div className='realtive cursor-pointer text-black flex lg:hidden items-center justify-center text-xl'>
+          <MdOutlineFileDownload className='text-3xl font-medium text-[#a81b81]' onClick={() => setDownload(!download)} />
+          <div className={`absolute top-[100px] right-3  bg-gray-100 z-10 ${download ? 'flex flex-col gap-1 px-3 py-1 border-[#a81b81] border-[1px] rounded-xl' : 'hidden'}`}>
+            <p>{t("Catalogue text")}</p>
             <div className='flex gap-4'>
               <a
                 className='flex items-center gap-1'
-                href="https://drive.google.com/drive/u/2/folders/1TnOLEiQAIgUUNlTLwIa_h2d31VVaoNKm" download
+                href="https://drive.google.com/file/d/11GZjEENskrRGpY7Uu5OyiE8dIod0ww3e/view?usp=share_link"
+                target="_blank"
                 onClick={() => setDownload(false)}
               >
                 <RU title="Russia" className='block z-40 h-4' />
@@ -128,23 +179,17 @@ const Navbar = () => {
               </a>
               <a
                 className='flex items-center gap-1'
-                href="https://drive.google.com/drive/u/2/folders/1TnOLEiQAIgUUNlTLwIa_h2d31VVaoNKm" download
+                href="https://drive.google.com/file/d/1sTUN4y0Igr19Zwv8Q6naKOhr__W-DSPu/view?usp=share_link"
+                target="_blank"
                 onClick={() => setDownload(false)}
               >
                 <GB title="Great Britain" className='block z-40 h-4' />
                 <span>EN</span>
               </a>
-              {/* <a
-                className='flex items-center gap-1'
-                href="/" download
-                onClick={() => setDownload(false)}
-              >
-                <UZ title="Uzbekistan" className='block z-40 h-4' />
-                <span>UZ</span>
-              </a> */}
             </div>
           </div>
         </div>
+
       </div>
     </section>
   )

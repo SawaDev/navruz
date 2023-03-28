@@ -66,6 +66,7 @@ import s_4 from "./sertificates/s_4.png"
 import s_5 from "./sertificates/s_5.png"
 import s_6 from "./sertificates/s_6.png"
 import s_7 from "./sertificates/s_7.png"
+import halal from "./halal.png"
 
 export {
   TbShieldCheck,
@@ -136,4 +137,5 @@ export {
   s_5,
   s_6,
   s_7,
+  halal
 }

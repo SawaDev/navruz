@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from '../components/Button'
 import "./style.css"
 import { Typewriter } from "react-simple-typewriter"
@@ -9,7 +9,7 @@ import { useState } from 'react'
 import { MdClose } from "react-icons/md"
 import Features from '../components/Features'
 import {
-  banner_1, banner_2, banner_4, GiCupcake, GiPartyPopper, TbShieldCheck, BsStarFill, BiPalette, features_1, features_2, features_3, features_4, features_5, s_1, s_2, s_3, s_4, s_5, s_6, s_7
+  banner_1, banner_2, banner_4, GiCupcake, GiPartyPopper, TbShieldCheck, BsStarFill, BiPalette, features_1, features_2, features_3, features_4, features_5, halal
 } from '../assets/index.js'
 import { motion } from "framer-motion"
 import { Link } from 'react-router-dom'
@@ -18,7 +18,7 @@ import Contact from '../components/ContactCom'
 import { fadeIn } from "../utils/motion.js";
 import { useTranslation } from 'react-i18next'
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Thumbs, Pagination } from "swiper";
+import { Autoplay, Navigation, Thumbs, Pagination, Keyboard } from "swiper";
 
 const items = [
   { image: banner_1, class: "img1" },
@@ -26,12 +26,10 @@ const items = [
   { image: banner_4, class: "img3" }
 ]
 
-const images = [s_1, s_7, s_2, s_3, s_4, s_5, s_6]
-
-
 const Home = () => {
   const [more, setMore] = useState(false)
   const [current, setCurrent] = useState(0);
+  const [opacity, setOpacity] = useState(0);
 
   const { t } = useTranslation();
 
@@ -44,8 +42,25 @@ const Home = () => {
     console.log(more)
   }
 
+  useEffect(() => {
+    let timerId;
+    setTimeout(() => {
+      setOpacity(1);
+      timerId = setTimeout(() => {
+        setOpacity(0);
+      }, 7000);
+    }, 500);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, []);
+
   return (
     <div className='overflow-hidden'>
+      <img
+        src={halal} alt="Image" className={`absolute right-10 bottom-10 transition-opacity z-[9] h-[100px] sm:h-[150px] object-contain duration-1000 ease-in-out ${opacity === 0 ? 'opacity-0' : 'opacity-100'}`}
+      />
       <section className='w-full relative backdrop-blur-[2px] pt-10 sm:pt-0 pb-[140px] flex flex-col lg:flex-row justify-between items-center'>
         <motion.div
           variants={fadeIn("right", "", 0, 0.7)}
@@ -107,50 +122,7 @@ const Home = () => {
         </motion.ul>
       </section>
       <Heading title="Products" text="Our" />
-      {/* <section className='flex flex-wrap gap-5 justify-around w-full'>
-        <motion.div
-          variants={fadeIn("up", "", 0, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          className='outline flex flex-col items-center py-10 px-10 rounded-xl'>
-          <div className='max-w-[250px] max-h-[250px] overflow-hidden'>
-            <img src={products[0].content[0].img} className="h-full w-full object-contain" />
-          </div>
-          <h1 className='text-4xl capitalize font-semibold text-[#a81b81] py-5'>Stick</h1>
-          <Link to="/categories/jelly/0">
-            <Button text="See more" />
-          </Link>
-        </motion.div>
-        <motion.div
-          variants={fadeIn("up", "", 0.2, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          className='outline flex flex-col items-center py-10 px-10 rounded-xl'>
-          <div className='max-w-[250px] max-h-[250px] overflow-hidden'>
-            <img src={products[1].content[0].img} className="h-full w-full object-contain" />
-          </div>
-          <h1 className='text-4xl capitalize font-semibold text-[#a81b81] py-5'>Energy</h1>
-          <Link to="/categories/jelly/1">
-            <Button text="See more" />
-          </Link>
-        </motion.div>
-        <motion.div
-          variants={fadeIn("up", "", 0.4, 0.3)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          className='outline flex flex-col items-center py-10 px-10 rounded-xl'>
-          <div className='max-w-[250px] max-h-[250px] overflow-hidden'>
-            <img src={products[3].content[0].img} className="h-full w-full object-contain" />
-          </div>
-          <h1 className='text-4xl capitalize font-semibold text-[#a81b81] py-5'>Cup</h1>
-          <Link to="/categories/jelly/3">
-            <Button text="See more" />
-          </Link>
-        </motion.div>
-      </section> */}
+
       <motion.div
         variants={fadeIn("", "", 0, 0.4)}
         initial="hidden"
@@ -158,16 +130,11 @@ const Home = () => {
         viewport={{ once: true, amount: 0.25 }}
         className='my-10 max-w-7xl mx-auto'>
         <Swiper
-          // navigation={true}
-          // loop={true}
+          navigation={true}
+          keyboard={true}
           pagination={{
             clickable: true,
           }}
-          // centeredSlides={true}
-          // autoplay={{
-          //   delay: 1500,
-          //   disableOnInteraction: false,
-          // }}
           spaceBetween={20}
           breakpoints={{
             0: {
@@ -176,11 +143,11 @@ const Home = () => {
             576: {
               slidesPerView: 2,
             },
-            768: {
+            1000: {
               slidesPerView: 3,
             },
           }}
-          modules={[Navigation, Thumbs, Autoplay, Pagination]}
+          modules={[Navigation, Thumbs, Autoplay, Pagination, Keyboard]}
           className='p-10 pb-14'
         >
           {products.map(product => (
@@ -191,7 +158,7 @@ const Home = () => {
               </div>
               <div className=''>
                 <h1 className='text-3xl text-white font-semibold mt-4 px-5 py-3 bg-[#e7316d] w-fit rounded-tl-[28px] rounded-br-[28px]'>Fruit Jelly</h1>
-                <h1 className={`${product.content[0].type === "energy package" ? 'text-xl' : 'text-2xl' } sm:text-3xl text-white font-semibold -mt-2 ml-2 mb-5 px-5 py-2 bg-[#804896] w-fit rounded-tl-[34px] rounded-br-[34px] capitalize`}>{product.content[0].type}</h1>
+                <h1 className={`${product.content[0].type === "energy package" ? 'text-xl' : 'text-2xl'} sm:text-[22px] lg:text-3xl text-white font-semibold -mt-2 ml-2 mb-5 px-5 py-2 bg-[#804896] w-fit rounded-tl-[34px] rounded-br-[34px] capitalize`}>{product.content[0].type}</h1>
               </div>
               <Link to="/categories/jelly/0">
                 <Button text="See more" />
@@ -289,19 +256,17 @@ const Home = () => {
         </motion.div>
       </div>
       <Contact />
-      {
-        more && (
-          <div className='fixed top-0 left-0 grid place-items-center h-screen w-screen overflow-y-scroll bg-black/75 z-20'>
-            <div className='absolute top-2 right-2 sm:top-5 sm:right-10 text-4xl sm:text-5xl text-[#a81b81] cursor-pointer z-50' onClick={handleMore}>
-              <MdClose />
-            </div>
-            <div className='bg-white relative flex flex-col items-center  py-5 px-6 gap-3 max-w-3xl sm:first-letter:rounded-lg'>
-              <h1 className='text-4xl font-semibold text-[#a81b81]'>{t("About our Company")}</h1>
-              <p className=''>{t("text more 1")} <br /><br />{t("text more 2")}<br /><br />{t("a tt2")}<br /><br />{t("text more 3")}</p>
-            </div>
+      {more && (
+        <div className='fixed top-0 left-0 grid place-items-center h-screen w-screen overflow-y-scroll bg-black/75 z-20'>
+          <div className='absolute top-2 right-2 sm:top-5 sm:right-10 text-4xl sm:text-5xl text-[#a81b81] cursor-pointer z-50' onClick={handleMore}>
+            <MdClose />
           </div>
-        )
-      }
+          <div className='bg-white relative flex flex-col items-center  py-5 px-6 gap-3 max-w-3xl sm:first-letter:rounded-lg'>
+            <h1 className='text-4xl font-semibold text-[#a81b81]'>{t("About our Company")}</h1>
+            <p className=''>{t("text more 1")} <br /><br />{t("text more 2")}<br /><br />{t("a tt2")}<br /><br />{t("text more 3")}</p>
+          </div>
+        </div>
+      )}
     </div >
   )
 }
