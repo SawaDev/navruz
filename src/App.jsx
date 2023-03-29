@@ -8,7 +8,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Test from './pages/Test'
 import { FaFacebookF, FaInstagram, FaTelegramPlane, FaTwitter } from "react-icons/fa"
-import { logo_white, halal } from "./assets/index.js"
+import { logo_white } from "./assets/index.js"
 import Products from './pages/Products';
 import SingleProduct from './pages/SingleProduct';
 import About from './pages/About';
@@ -16,20 +16,39 @@ import Contact from './pages/Contact';
 import { useTranslation } from "react-i18next"
 import { useEffect, useState } from 'react';
 import ScrollToTop from './ScrollToTop';
+import { motion } from "framer-motion"
 
 function App() {
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
   const { t } = useTranslation()
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const visible = prevScrollPos > currentScrollPos || currentScrollPos < 0;
+      setShowNavbar(visible);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
+
   return (
     <BrowserRouter>
       <main>
-        <div className='sticky navbar shadow-sm top-0 left-0 right-0 z-10'>
+        <motion.div
+          whileInView={{ y: [-20, 0], opacity: [0.5, 1] }}
+          transition={{ duration: 0.5 }}
+          className={`${showNavbar ? 'sticky navbar top-0 left-0 right-0 z-10' : 'relative'}`}>
           <Navbar />
-        </div>
+        </motion.div>
 
         <ScrollToTop />
         <Routes>
