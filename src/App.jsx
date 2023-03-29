@@ -81,15 +81,15 @@ function App() {
             <div className='flex flex-col flex-1'>
               <h1 className='font-semibold text-lg mb-3'>{t("Contact Us")}</h1>
               <div>
-                <p className='capitalize text-sm text-gray-300'>
+                {/* <p className='capitalize text-sm text-gray-300'>
                   Shaykhontokhur region<br />
                   Adiblar-3 street<br />
                   34-Home<br />
-                </p>
+                </p> */}
               </div>
               <div>
-                <p className='font-semibold text-gray-300'>{t("phone")}: <a href="tel:+998957902108" className='font-light hover:text-white'>+998957902108</a></p>
-                <p className='font-semibold text-gray-300'>{t("Home")}: <a href="mailto:sardormahmudov16@gmail.com" className='font-light hover:text-white'>sardormahmudov16@gmail</a></p>
+                <p className='font-semibold text-gray-300'>{t("phone")}: <a href="tel:+998998777577" className='font-light hover:text-white'>+998998777577</a></p>
+                <p className='font-semibold text-gray-300'>{t("Email")}: <a href="mailto:jelenavruz@gmail.com" className='font-light hover:text-white'>jelenavruz@gmail</a></p>
               </div>
             </div>
           </section>

@@ -6,8 +6,11 @@ import { BsPhone } from "react-icons/bs"
 import { SlLocationPin } from "react-icons/sl"
 import { motion } from "framer-motion"
 import { fadeIn } from '../utils/motion'
+import { useTranslation } from "react-i18next"
 
 const Contact = () => {
+  const { t } = useTranslation()
+
   return (
     <div>
       <Heading title="Contacts" />
@@ -17,16 +20,17 @@ const Contact = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className='flex items-center flex-1 justify-start rounded-md p-5 gap-5 shadow-xl'>
+          className='flex items-center flex-1 flex-grow justify-start rounded-md p-5 gap-5 shadow-xl'>
           <div className='text-[#a81b81] text-5xl rounded-md'>
             <TfiEmail />
           </div>
           <div className='flex flex-col'>
-            <span className='text-xl font-semibold'>Email: </span>
-            <a className='text-sm sm:text-lg' href='mailto:sardormahmudov16@gmail.com'>sardormahmudov16@gmail.com</a>
+            <span className='text-xl font-semibold'>{t("Email")}: </span>
+            <a className='text-lg sm:text-lg' href='mailto:abdusnishanov@gmail.com'>abdusnishanov@gmail.com</a>
+            <a className='text-lg sm:text-lg' href='mailto:jelenavruz@gmail.com'>jelenavruz@gmail.com</a>
           </div>
         </motion.div>
-        <motion.div
+        {/* <motion.div
           variants={fadeIn("up", "", 0.1, 0.3)}
           initial="hidden"
           whileInView="show"
@@ -37,22 +41,21 @@ const Contact = () => {
           </div>
           <div className='flex flex-col'>
             <span className='text-xl font-semibold'>Location: </span>
-            <a>Location here</a>
+            <p>Location here</p>
           </div>
-        </motion.div>
+        </motion.div> */}
         <motion.div
           variants={fadeIn("up", "", 0.2, 0.3)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className='flex items-center flex-1 justify-start rounded-md p-5 gap-5 shadow-xl'>
+          className='flex items-center flex-1 flex-grow justify-start rounded-md p-5 gap-5 shadow-xl'>
           <div className='text-[#a81b81] text-5xl rounded-md'>
             <BsPhone />
           </div>
           <div className='flex flex-col'>
-            <span className='text-xl font-semibold'>Phone: </span>
-            <a href="tel:+998957902108">+998123456789</a>
-            <a href="tel:+998957902108">+998123456789</a>
+            <span className='text-xl font-semibold'>{t("phone")}: </span>
+            <a className='text-lg' href="tel:+998957902108">+998998777577</a>
           </div>
         </motion.div>
       </section>

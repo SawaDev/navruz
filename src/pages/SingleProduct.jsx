@@ -4,7 +4,7 @@ import { products } from "../dummyData.js"
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./stylee.scss";
-import { Autoplay, Navigation, Thumbs } from "swiper";
+import { Navigation, Thumbs, Keyboard } from "swiper";
 import Contact from '../components/ContactCom.jsx';
 import { motion } from "framer-motion"
 import { fadeIn } from '../utils/motion.js';
@@ -28,11 +28,12 @@ const SingleProduct = () => {
           <Swiper
             spaceBetween={10}
             navigation={true}
+            keyboard={true}
             onSlideNextTransitionStart={(swiper) => setIndex(swiper.activeIndex)}
             onSlidePrevTransitionStart={(swiper) => setIndex(swiper.activeIndex)}
             onSlideChange={(swiper) => setIndex(swiper.activeIndex)}
             grabCursor={true}
-            modules={[Navigation, Thumbs, Autoplay]}
+            modules={[Navigation, Thumbs, Keyboard]}
             thumbs={{ swiper: activeThumb && !activeThumb.destroyed ? activeThumb : null }}
             className='product-images-slider'
           >
@@ -66,14 +67,14 @@ const SingleProduct = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           className='basis-2/5 h-full flex flex-col'>
-          <h1 className='text-3xl text-white font-semibold mt-4 px-5 py-3 bg-[#e7316d] w-fit rounded-tl-[28px] rounded-br-[28px]'>Fruit Jelly</h1>
+          <h1 className='text-3xl text-white font-semibold mt-4 px-5 py-3 bg-[#e7316d] w-fit rounded-tl-[28px] rounded-br-[28px]'>{t("Fruit Jelly")}</h1>
           <h1 className='text-3xl text-white font-semibold -mt-2 ml-2 mb-5 px-5 py-2 bg-[#804896] w-fit rounded-tl-[34px] rounded-br-[34px] capitalize'>{t(products[id].content[index].type)}</h1>
-          {products[id].content[index]?.pieces && <p className='text-xl text-black/80 font-semibold'>Capacity: <span className='font-medium capitalize text-slate-800'>{products[id].content[index].pieces}</span></p>}
-          {products[id].content[index]?.exDate && <p className='text-xl text-black/80 font-semibold'>Expiration Date: <span className='font-medium capitalize text-slate-800'>{products[id].content[index].exDate}</span></p>}
-          {products[id].content[index]?.net_weight && <p className='text-xl text-black/80 font-semibold'>Net Weight: <span className='font-medium capitalize text-slate-800'>{products[id].content[index].net_weight}</span></p>}
-          {products[id].content[index]?.gross_weight && <p className='text-xl text-black/80 font-semibold'>Gross Weight: <span className='font-medium capitalize text-slate-800'>{products[id].content[index].gross_weight}</span></p>}
-          {products[id].content[index]?.volume && <p className='text-xl text-black/80 font-semibold'>Volume: <span className='font-medium capitalize text-slate-800'>{products[id].content[index].volume}</span></p>}
-          {products[id].content[index]?.mass && <p className='text-xl text-black/80 font-semibold'>Weight: <span className='font-medium capitalize text-slate-800'>{products[id].content[index].mass}</span></p>}
+          {products[id].content[index]?.pieces && <p className='text-xl text-black/80 font-semibold'>{t("Capacity")}: <span className='font-medium capitalize text-slate-800'>{t(products[id].content[index].pieces)}</span></p>}
+          {products[id].content[index]?.exDate && <p className='text-xl text-black/80 font-semibold'>{t("Expiration Date")}: <span className='font-medium capitalize text-slate-800'>{t(products[id].content[index].exDate)}</span></p>}
+          {products[id].content[index]?.net_weight && <p className='text-xl text-black/80 font-semibold'>{t("Net Weight")}: <span className='font-medium capitalize text-slate-800'>{t(products[id].content[index].net_weight)}</span></p>}
+          {products[id].content[index]?.gross_weight && <p className='text-xl text-black/80 font-semibold'>{t("Gross Weight")}: <span className='font-medium capitalize text-slate-800'>{t(products[id].content[index].gross_weight)}</span></p>}
+          {products[id].content[index]?.volume && <p className='text-xl text-black/80 font-semibold'>{t("Volume")}: <span className='font-medium capitalize text-slate-800'>{t(products[id].content[index].volume)}</span></p>}
+          {products[id].content[index]?.mass && <p className='text-xl text-black/80 font-semibold'>{t("Weight")}: <span className='font-medium capitalize text-slate-800'>{t(products[id].content[index].mass)}</span></p>}
         </motion.div>
       </section>
       <div className='mt-10'>
