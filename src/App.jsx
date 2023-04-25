@@ -31,13 +31,13 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    // Check if the current URL is the same as the previous URL
-    if (window.location.href === window.location.origin + window.location.pathname) {
-      // Redirect to desired URL
-      navigate('/');
-    }
-  }, [navigate]);
+  // useEffect(() => {
+  //   // Check if the current URL is the same as the previous URL
+  //   if (window.location.href === window.location.origin + window.location.pathname) {
+  //     // Redirect to desired URL
+  //     navigate('/');
+  //   }
+  // }, [navigate]);
 
   useEffect(() => {
     const handleScroll = () => {
