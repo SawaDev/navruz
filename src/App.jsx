@@ -6,7 +6,6 @@ import "swiper/css/thumbs";
 import "swiper/css/pagination";
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import Test from './pages/Test'
 import { FaFacebookF, FaInstagram, FaTelegramPlane, FaWhatsapp } from "react-icons/fa"
 import { logo_white } from "./assets/index.js"
 import Products from './pages/Products';
@@ -17,27 +16,20 @@ import { useTranslation } from "react-i18next"
 import { useEffect, useState } from 'react';
 import ScrollToTop from './ScrollToTop';
 import { motion } from "framer-motion"
-import { useNavigate } from "react-router-dom"
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-  const navigate = useNavigate();
-
   const { t } = useTranslation()
+
+  useEffect(() => {
+    
+  }, [])
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // useEffect(() => {
-  //   // Check if the current URL is the same as the previous URL
-  //   if (window.location.href === window.location.origin + window.location.pathname) {
-  //     // Redirect to desired URL
-  //     navigate('/');
-  //   }
-  // }, [navigate]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,7 +58,6 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/test' element={<Test />} />
           <Route path='/products' element={<Products />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
