@@ -55,7 +55,8 @@ const Contact = () => {
           </div>
           <div className='flex flex-col'>
             <span className='text-xl font-semibold'>{t("phone")}: </span>
-            <a className='text-lg' href="tel:+998957902108">+998998777577</a>
+            <a className='text-lg' href="tel:+998955555688">+998 95 555-56-88</a>
+            <a className='text-lg' href="tel:+998998777577">+998 99 877-75-77</a>
           </div>
         </motion.div>
       </section>

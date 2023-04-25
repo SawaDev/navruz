@@ -9,6 +9,7 @@ import Contact from '../components/ContactCom.jsx';
 import { motion } from "framer-motion"
 import { fadeIn } from '../utils/motion.js';
 import { useTranslation } from "react-i18next"
+
 const SingleProduct = () => {
   const location = useLocation();
   const id = location.pathname.split('/')[3];

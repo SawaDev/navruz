@@ -8,11 +8,11 @@ import { GiCupcake, GiPartyPopper, TbShieldCheck, BsStarFill, BiPalette, feature
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Thumbs } from "swiper";
 import { products } from '../dummyData.js'
-import { motion } from "framer-motion"
 import { fadeIn } from '../utils/motion'
+import { motion } from "framer-motion"
 import { useTranslation } from 'react-i18next'
 
-const images = [s_1, s_7, s_2, s_3, s_4, s_5, s_6]
+const images = [s_1, s_3, s_4, s_5, s_6, s_7, s_2, ]
 
 const About = () => {
   const [more, setMore] = useState(false)

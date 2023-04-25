@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../components/Button'
 import "./style.css"
 import { Typewriter } from "react-simple-typewriter"
 import Heading from '../components/Heading'
 import aboutImg from "../assets/about.png"
 import aboutImg2 from "../assets/about_2.jpg"
-import { useState } from 'react'
 import { MdClose } from "react-icons/md"
 import Features from '../components/Features'
 import {

@@ -46,7 +46,7 @@ function App() {
         <motion.div
           whileInView={{ y: [-20, 0], opacity: [0.5, 1] }}
           transition={{ duration: 0.5 }}
-          className={`${showNavbar ? 'sticky navbar top-0 left-0 right-0 z-10' : 'relative'}`}>
+          className={`${showNavbar ? 'sticky navbar top-0 left-0 right-0 z-10 shadow-sm' : 'relative'}`}>
           <Navbar />
         </motion.div>
 
@@ -100,14 +100,8 @@ function App() {
             <div className='flex flex-col flex-1'>
               <h1 className='font-semibold text-lg mb-3'>{t("Contact Us")}</h1>
               <div>
-                {/* <p className='capitalize text-sm text-gray-300'>
-                  Shaykhontokhur region<br />
-                  Adiblar-3 street<br />
-                  34-Home<br />
-                </p> */}
-              </div>
-              <div>
-                <p className='font-semibold text-gray-300'>{t("phone")}: <a href="tel:+998998777577" className='font-light hover:text-white'>+998998777577</a></p>
+                <p className='font-semibold text-gray-300'>{t("manager")}: <a href="tel:+998955555688" className='font-light hover:text-white'>+998 95 555-56-88</a></p>
+                <p className='font-semibold text-gray-300'>{t("phone")}: <a href="tel:+998998777577" className='font-light hover:text-white'>+998 99 877-75-77</a></p>
                 <p className='font-semibold text-gray-300'>{t("Email")}: <a href="mailto:jelenavruz@gmail.com" className='font-light hover:text-white'>jelenavruz@gmail</a></p>
               </div>
             </div>
