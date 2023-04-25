@@ -134,7 +134,7 @@ const Navbar = () => {
           </div>
           <div className={`absolute top-8 -right-4 bg-gray-100 text-black z-10 ${active ? 'flex flex-col gap-1 px-3 py-1 border-[#a81b81] border-[1px] rounded-xl' : 'hidden'}`}>
             <div
-              className='flex items-center gap-1'
+              className='flex items-center gap-1 cursor-pointer'
               onClick={() => {
                 changeLanguage('ru')
                 setActive(false)
@@ -143,7 +143,7 @@ const Navbar = () => {
               <span>RU</span>
             </div>
             <div
-              className='flex items-center gap-1'
+              className='flex items-center gap-1 cursor-pointer'
               onClick={() => {
                 changeLanguage('en')
                 setActive(false)
@@ -152,7 +152,7 @@ const Navbar = () => {
               <span>EN</span>
             </div>
             <div
-              className='flex items-center gap-2'
+              className='flex items-center gap-2 cursor-pointer'
               onClick={() => {
                 changeLanguage('uz')
                 setActive(false)

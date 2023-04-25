@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Test from './pages/Test'
-import { FaFacebookF, FaInstagram, FaTelegramPlane, FaTwitter } from "react-icons/fa"
+import { FaFacebookF, FaInstagram, FaTelegramPlane, FaWhatsapp } from "react-icons/fa"
 import { logo_white } from "./assets/index.js"
 import Products from './pages/Products';
 import SingleProduct from './pages/SingleProduct';
@@ -17,16 +17,27 @@ import { useTranslation } from "react-i18next"
 import { useEffect, useState } from 'react';
 import ScrollToTop from './ScrollToTop';
 import { motion } from "framer-motion"
+import { useNavigate } from "react-router-dom"
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  const navigate = useNavigate();
 
   const { t } = useTranslation()
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    // Check if the current URL is the same as the previous URL
+    if (window.location.href === window.location.origin + window.location.pathname) {
+      // Redirect to desired URL
+      navigate('/');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +50,8 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos]);
+
+
 
   return (
     <BrowserRouter>
@@ -68,17 +81,17 @@ function App() {
               </div>
               <p className='text-gray-300 mb-3'>{t("footer desc")}</p>
               <div className='icons flex gap-2'>
-                <a className='p-2 text-lg border-2 rounded-full opacity-70 hover:opacity-100 drop-shadow-lg hover:shadow-white '>
+                <a href='https://www.facebook.com/frutti.uz/' className='p-2 text-lg border-2 rounded-full opacity-70 hover:opacity-100 drop-shadow-lg hover:shadow-white '>
                   <FaFacebookF />
                 </a>
-                <a href='https://www.instagram.com/sardor_isme/' className='p-2 text-lg border-2 rounded-full opacity-70 hover:opacity-100 shadow-sm hover:shadow-white '>
+                <a href='https://www.instagram.com/frutti.uz/' className='p-2 text-lg border-2 rounded-full opacity-70 hover:opacity-100 shadow-sm hover:shadow-white '>
                   <FaInstagram />
                 </a>
-                <a href="https://telegram.me/otaSmurf_1" className='p-2 text-lg border-2 rounded-full opacity-70 hover:opacity-100 shadow-sm hover:shadow-white '>
+                <a href="https://telegram.me/frutti_uzb" className='p-2 text-lg border-2 rounded-full opacity-70 hover:opacity-100 shadow-sm hover:shadow-white '>
                   <FaTelegramPlane />
                 </a>
                 <a className='p-2 text-lg border-2 rounded-full opacity-70 hover:opacity-100 shadow-sm hover:shadow-white '>
-                  <FaTwitter />
+                  <FaWhatsapp />
                 </a>
               </div>
             </div>
